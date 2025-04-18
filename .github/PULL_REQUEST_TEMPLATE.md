@@ -13,4 +13,4 @@ https://github.com/Kenichi585-sys/hc_practice/tree/pr_template/.github
 ## その他
 
 * レビュワーへの参考情報（実装上の懸念点や注意点、困りごとなど）
-  - 今のところないです
+* - 今のところないです
