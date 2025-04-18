@@ -7,8 +7,8 @@ https://github.com/Kenichi585-sys/hc_practice/tree/pr_template/.github
 3 PULL_REQUEST_TEMPLATE.mdを更新してりょうさん宛にPR
 
 ## 動作確認方法
-・上記に貼り付けたリンクを別タブにコピペしてアクセス可能であることを確認した
-・Repositoriesタブでhc_practiceディレクトリ選択後、ブランチをmainからpc_practiceに切り替えて.githubフォルダにアクセス可能であることを確認した
+- 上記に貼り付けたリンクを別タブにコピペしてアクセス可能であることを確認した
+- Repositoriesタブでhc_practiceディレクトリ選択後、ブランチをmainからpc_practiceに切り替えて.githubフォルダにアクセス可能であることを確認した
 
 ## その他
 
