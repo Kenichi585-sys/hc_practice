@@ -1,16 +1,16 @@
 ## 課題のリンク
-
-* https://example.com
+https://github.com/Kenichi585-sys/hc_practice/tree/pr_template/.github
 
 ## やったこと
-
-* このプルリクで何をしたのか？
-
+1 hc_practiceリポジトリの中に.githubフォルダを作成
+2 .githubフォルダの中にPULL_REQUEST_TEMPLATE.mdを作成
+3 PULL_REQUEST_TEMPLATE.mdを更新してりょうさん宛にPR
 
 ## 動作確認方法
-
-* 動作確認方法の手順を書いてください
+・上記に貼り付けたリンクを別タブにコピペしてアクセス可能であることを確認した
+・Repositoriesタブでhc_practiceディレクトリ選択後、ブランチをmainからpc_practiceに切り替えて.githubフォルダにアクセス可能であることを確認した
 
 ## その他
 
 * レビュワーへの参考情報（実装上の懸念点や注意点、困りごとなど）
+　 今のところないです
