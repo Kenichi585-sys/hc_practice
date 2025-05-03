@@ -1,0 +1,164 @@
+/* スマートフォンの設定 */
+.container {
+    display: block;
+    padding: 0 4%;
+    width: 600px;
+    text-align: center;
+    margin:  0 auto;
+}
+
+.header {
+    display: flex;
+}
+
+.header ul {
+    display: flex;
+    list-style: none;
+    width: 400px;
+    justify-content: space-between;
+    gap: 40px;
+    margin-right: auto;
+    margin-left: auto;
+    font-weight: lighter;
+}
+
+span {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(56, 55, 55);
+    padding: 10px 20px;
+}
+
+.main_image {
+    height: 600px;
+    margin: 0 calc(-50%);
+    }
+
+.self_wrapper {
+    margin-top: 50px;
+}
+
+.title {
+    font-size: 40px;
+    display: inline-block;
+    border-bottom: 1px solid #000;
+}
+
+.self_name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.self_text {
+    width: 53%;
+    text-align: left;
+    margin: 0 auto;
+    font-weight: lighter;
+}
+
+.self_image {
+    border-radius: 50%;
+    width: 18%;
+    margin-top: 20px;
+}
+
+.profile_wrapper {
+    margin-top: 50px;
+}
+
+.profile_name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.profile_text {
+    width: 40%;
+    text-align: center;
+    margin: 0 auto;
+    font-weight: lighter;
+}
+
+.profile_image {
+    margin: 10px auto;
+    width: 100%;
+}
+
+.footer {
+    margin-top:130px;
+    padding-bottom: 20px;
+    border-bottom: 10px solid #000;
+    width: 100%;
+    text-align: center;
+}
+
+@media screen and (min-width: 600px){
+    .container {
+    display: block;
+    padding: 0 4%;
+    width: 960px;
+    margin:  0 auto;
+}
+
+.header ul {
+    width: 100%;
+}
+
+ul li:nth-of-type(2) {
+    margin-left: auto;
+}
+
+span {
+    padding: 10px 20px;
+}
+
+.self {
+    display: flex;
+    align-items: flex-start;
+    padding-left: 130px;
+}
+
+.self_text {
+    width: 57%;
+}
+
+.main_image {
+    width: 100vw;
+    margin: 0 calc(50% - 50vw);
+}
+
+.self_art {
+    flex: 1;
+}
+
+.self_name {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.self_text {
+    width: 100%;
+}
+
+.self_image {
+    width: 13%;
+    margin-right: 130px;
+}
+
+.profile_img_wrapper {
+    display: flex;
+    gap: 20px;
+}
+
+.profile_text {
+    width: 100%;
+}
+
+.footer {
+    width: 100vw;
+    margin-left: 0;
+    margin-left: calc(50% - 50vw);
+}
+
+}
