@@ -32,7 +32,9 @@ span {
 
 .main_image {
     height: 600px;
-    margin: 0 calc(-50%);
+    /* margin: 0 calc(-50%); */
+    background-image: url(./still/main.png);
+    background-size: cover;
     }
 
 .self_wrapper {
