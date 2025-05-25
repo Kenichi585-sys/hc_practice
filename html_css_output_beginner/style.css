@@ -132,10 +132,6 @@ span {
     width: 57%;
 }
 
-.main_image {
-    /* margin: 0 calc(50% - 50vw); */
-}
-
 .self_art {
     flex: 1;
 }
