@@ -65,7 +65,6 @@ h1 {
 
 .self_image {
     border-radius: 50%;
-    width: 25%;
     align-items: center;
 }
 
@@ -139,10 +138,6 @@ span {
     width: 100%;
 }
 
-.self_image {
-    width: 13%;
-    /* margin-right: 130px; */
-}
 
 .profile_img_wrapper {
     display: flex;
@@ -154,7 +149,7 @@ span {
 }
 
 .footer {
-    width: 100vw;
+    /* width: 100vw; */
     
 }
 
