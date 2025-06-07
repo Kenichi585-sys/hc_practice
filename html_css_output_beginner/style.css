@@ -7,31 +7,30 @@ html {
 .container {
     display: block;
     padding: 0 4%;
-    /* width: 600px; */
     text-align: center;
     margin:  0 auto;
 }
 
 .header {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .header ul {
     display: flex;
     list-style: none;
-    width: 400px;
-    justify-content: space-between;
     gap: 40px;
-    margin-right: auto;
-    margin-left: auto;
     font-weight: lighter;
+    align-items: center;
 }
 
-span {
+h1 {
+    font-size: 20px;
     font-weight: bold;
     color: white;
     background-color: rgb(56, 55, 55);
-    padding: 10px 20px;
+    padding: 20px 20px;
 }
 
 .main_image {
@@ -66,8 +65,7 @@ span {
 
 .self_image {
     border-radius: 50%;
-    width: 25%;
-    margin-top: 20px;
+    align-items: center;
 }
 
 .profile_wrapper {
@@ -107,9 +105,6 @@ span {
     margin:  0 auto;
 }
 
-.header ul {
-    width: 100%;
-}
 
 ul li:nth-of-type(2) {
     margin-left: auto;
@@ -122,20 +117,20 @@ span {
 .self {
     display: flex;
     align-items: flex-start;
-    padding-left: 130px;
+    justify-content: center;
+    gap: 30px;
 }
 
 .self_text {
-    width: 57%;
+    /* width: 57%; */
 }
 
 .self_art {
-    flex: 1;
+    /* flex: 1; */
 }
 
 .self_name {
     font-size: 18px;
-    font-weight: bold;
     text-align: left;
 }
 
@@ -143,10 +138,6 @@ span {
     width: 100%;
 }
 
-.self_image {
-    width: 13%;
-    margin-right: 130px;
-}
 
 .profile_img_wrapper {
     display: flex;
@@ -158,9 +149,8 @@ span {
 }
 
 .footer {
-    width: 100vw;
-    margin-left: 0;
-    margin-left: calc(50% - 50vw);
+    /* width: 100vw; */
+    
 }
 
 }
