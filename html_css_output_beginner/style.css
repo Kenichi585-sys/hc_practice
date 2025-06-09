@@ -5,10 +5,7 @@ html {
 }
 
 .container {
-    display: block;
-    padding: 0 4%;
     text-align: center;
-    margin:  0 auto;
 }
 
 .header {
