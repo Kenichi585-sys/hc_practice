@@ -12,41 +12,35 @@ with open(file) as file_data:
 
 
 def judge_score(par, strokes):
+    
     print("\n各コースの成績:")
     score = []
     for par, stroke in zip(par, strokes):
-        if par == 5 and stroke == 1:
-            score.append('コンドル')
-            continue
+        
+        result = stroke - par
 
-        elif par == 5 and stroke == 2:
-            score.append('アルバトロス')
-            continue
-
-        elif par == 4 and stroke == 1 or stroke == 1:
+        if par == 4 and stroke == 1 or not par == 5 and stroke == 1:
             score.append('ホールインワン')
             continue
 
-        calculate_par_difference = (par - stroke) * -1
-
-        if calculate_par_difference == 0:
-            score.append('パー')
-
-        elif calculate_par_difference == -1:
-            score.append('バーディ')
-
-        elif calculate_par_difference == -2:
-            score.append('イーグル')
-
-        elif calculate_par_difference == 1:
-            score.append('ボギー')
-
-        elif calculate_par_difference == 2:
-            score.append('2ボギー')
-
-        elif calculate_par_difference >= 3:
-            num = calculate_par_difference
+        elif result >= 3:
+            num = result
             score.append(f"{num}ボギー")
+            continue
+
+        SCORE_MAPPING = {
+            -4: "コンドル",
+            -3: "アルバトロス",
+            -2: "イーグル",
+            -1: "バーディ",
+            0: "パー",
+            1: "ボギー",
+            2: "2ボギー",
+        }
+
+        SCORE_MAPPING[result]
+        score.append(SCORE_MAPPING[result])
+        
     print(','.join(score))
 
 
