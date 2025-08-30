@@ -9,6 +9,15 @@ with open(file) as file_data:
     line2 = file_data.readline()
     player_strokes = [int(x) for x in line2.split(',')]
     print(player_strokes)
+    
+    SCORE_MAPPING = {
+    -4: "コンドル",
+    -3: "アルバトロス",
+    -2: "イーグル",
+    -1: "バーディ",
+    0: "パー",
+    1: "ボギー",
+    }
 
 
 def judge_score(par, strokes):
@@ -23,22 +32,11 @@ def judge_score(par, strokes):
             score.append('ホールインワン')
             continue
 
-        elif result >= 3:
+        elif result >= 2:
             num = result
             score.append(f"{num}ボギー")
             continue
 
-        SCORE_MAPPING = {
-            -4: "コンドル",
-            -3: "アルバトロス",
-            -2: "イーグル",
-            -1: "バーディ",
-            0: "パー",
-            1: "ボギー",
-            2: "2ボギー",
-        }
-
-        SCORE_MAPPING[result]
         score.append(SCORE_MAPPING[result])
         
     print(','.join(score))
