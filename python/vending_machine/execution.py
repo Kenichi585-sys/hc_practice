@@ -4,4 +4,4 @@ from vending_machine import VendingMachine
 suica = Suica()
 vending =VendingMachine()
 
-print(vending.buy_juice(suica, 'ペプシ', 2))
+print(vending.add_inventory('ペプシ', 3))
