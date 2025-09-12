@@ -30,6 +30,7 @@ class Pokemon:
         self.type = type
         self.exText = f"{self.name}は{self.type}タイプのポケモン。"
 
+
 # 継承とポリモーフィズム
 # 良くない例
 class Pokemon:
@@ -110,12 +111,6 @@ class Pikachu(Pokemon):
         print(f"{self._name}の10万ボルト!")
 
 
-
-
-
-
-
-
 class Pokemon:
     def __init__(self, name="リザードン",  type1="ほのお",  type2="ひこう",  hp=10):
         self.name = name
@@ -141,8 +136,8 @@ class Pokemon:
 
 # カプセル化の例
 class Pokemon:
-    def __init__(self, __name, type1, type2, hp):
-        self.__name = __name
+    def __init__(self, _name, type1, type2, hp):
+        self._name = _name
         self.type1 = type1
         self.type2 = type2
         self.hp = hp
@@ -152,7 +147,54 @@ class Pokemon:
             print("不適切な名前です")
             return
         else:
-            name = new_name
+            self._name = new_name
 
     def get_name(self):
-        return self.__name
+        return self._name
+    
+
+class Pikachu(Pokemon):
+    def __init__(self, type1, type2, hp):
+        super().__init__(type1, type2, hp)
+
+    def attack(self):
+        print(f"{self._name}の10万ボルト!")
+
+
+# interface の使い方例
+from abc import ABCMeta, abstractmethod
+
+
+class Pokemon(metaclass=ABCMeta):
+    @abstractmethod
+    def __init__(self, _name, type1, type2, hp):
+        self._name = _name
+        self.type1 = type1
+        self.type2 = type2
+        self.hp = hp
+
+    @abstractmethod
+    def attack(self):
+        pass
+
+    def change_name(self, new_name):
+        if new_name == 'うんこ':
+            print("不適切な名前です")
+            return
+        else:
+            self._name = new_name
+
+    @abstractmethod
+    def get_name(self):
+        return self._name
+    
+
+class Player(Pokemon):
+    def __init__(self, _name, type1, type2, hp):
+        super().__INIT__(_name, type1, type2, hp)
+
+    def change_name(self, new_name):
+        pass
+    
+    def get_name(self):
+        pass
