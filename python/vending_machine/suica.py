@@ -12,7 +12,7 @@ class Suica:
     def get_balance(self):
         return self.__balance
     
-    def reduce_money(self, amount):
+    def pay(self, amount):
         if self.__balance >= amount:
             self.__balance -= amount
             return self.__balance
