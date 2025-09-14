@@ -36,6 +36,6 @@ class VendingMachine:
         for juice in self.__stocks:
             if juice.get_name() == juice_name:
                 self.__stocks[juice] += quantity
-                return self.__stocks
+                return 
         raise ValueError('その商品はないので追加できません。')
         
