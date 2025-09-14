@@ -25,15 +25,17 @@ class VendingMachine:
             if juice.get_name() == juice_name and stock >= quantity:
                 total = juice.get_price() * quantity
                 suica.pay(total)
-                stock -= quantity
-                self.__stocks[juice] = stock
+                self.__stocks[juice] -= quantity
                 self.__sales += total
-                return True
+                return 
         raise ValueError('在庫がないかその商品はありません。')
         
     def add_inventory(self, juice_name, quantity):
-        if quantity > 0 and isinstance(quantity, int):
-            for juice, stock in self.__stocks.items():
-                if juice.get_name() == juice_name:
-                    stock += quantity
-                return stock
+        if quantity <= 0 or not isinstance(quantity, int):
+            raise ValueError('1以上の整数でないと追加できません。')
+        for juice in self.__stocks:
+            if juice.get_name() == juice_name:
+                self.__stocks[juice] += quantity
+                return self.__stocks
+        raise ValueError('その商品はないので追加できません。')
+        
