@@ -22,39 +22,30 @@ updated_at {label: "datetime, not null, default CURRENT_TIMESTAMP"}
 
 [goods]
 *id {label: "bigint, not null"}
+user_id {label: "bigint, not null, FK(users)"}
 tweet_id {label: "bigint, not null, FK(tweets)"}
 created_at {label: "datetime, not null, default CURRENT_TIMESTAMP"}
 updated_at {label: "datetime, not null, default CURRENT_TIMESTAMP"}
 
 [retweets]
 *id {label: "bigint, not null"}
+user_id {label: "bigint, not null, FK(users)"}
 tweet_id {label: "bigint, not null, FK(tweets)"}
 created_at {label: "datetime, not null, default CURRENT_TIMESTAMP"}
 updated_at {label: "datetime, not null, default CURRENT_TIMESTAMP"}
 
-[send_direct_messages]
+[direct_messages]
 *id {label: "bigint, not null"}
-user_id {label: "bigint, not null, FK(users)"}
+sender_id {label: "bigint, not null, FK(users)"}
+recipient_id {label: "bigint, not null, FK(users)"}
 content {label: "varchar(1000), not null"}
 created_at {label: "datetime, not null, default CURRENT_TIMESTAMP"}
 updated_at {label: "datetime, not null, default CURRENT_TIMESTAMP"}
 
-[receive_direct_messages]
+[follows]
 *id {label: "bigint, not null"}
-user_id {label: "bigint, not null, FK(users)"}
-content {label: "varchar(1000), not null"}
-created_at {label: "datetime, not null, default CURRENT_TIMESTAMP"}
-updated_at {label: "datetime, not null, default CURRENT_TIMESTAMP"}
-
-[followings]
-*id {label: "bigint, not null"}
-user_id {label: "bigint, not null, FK(users)"}
-created_at {label: "datetime, not null, default CURRENT_TIMESTAMP"}
-updated_at {label: "datetime, not null, default CURRENT_TIMESTAMP"}
-
-[followers]
-*id {label: "bigint, not null"}
-user_id {label: "bigint, not null, FK(users)"}
+following_id {label: "bigint, not null, FK(users)"}
+follower_id {label: "bigint, not null, FK(users)"}
 created_at {label: "datetime, not null, default CURRENT_TIMESTAMP"}
 updated_at {label: "datetime, not null, default CURRENT_TIMESTAMP"}
 
@@ -75,18 +66,19 @@ updated_at {label: "datetime, not null, default CURRENT_TIMESTAMP"}
 
 [bookmarks]
 *id {label: "bigint, not null"}
+user_id {label: "bigint, not null, FK(users)"}
 tweet_id {label: "bigint, not null, FK(tweets)"}
 created_at {label: "datetime, not null, default CURRENT_TIMESTAMP"}
 updated_at {label: "datetime, not null, default CURRENT_TIMESTAMP"}
 
 
 users 1--* tweets
-users 1--* send_direct_messages
-users 1--* receive_direct_messages
-users 1--* followings
-users 1--* followers
+users 1--* direct_messages {label: "sender_id"}
+users 1--* direct_messages {label: "recipient_id"}
+users 1--* follows {label: "following_id"}
+users 1--* follows {label: "follower_id"}
 tweets 1--* goods
 tweets 1--* retweets
 tweets 1--* bookmarks
 goods 1--1 good_notices
-followers 1--1 follower_notices
+follower_notices 1--1 follows {label: "follower_id"}
