@@ -1,0 +1,24 @@
+{
+    // VS Code のデバッグ設定を定義する JSON ファイル
+    "version": "0.2.0",
+    "configurations": [
+        {
+            // 設定名: デバッグ実行時にプルダウンに表示される名前
+            "name": "Python: Django",
+            // デバッグの種類: Pythonリモートデバッグを使用
+            "type": "python",
+            "request": "launch",
+            // 実行するファイル: manage.py を指定
+            "program": "${workspaceFolder}/manage.py",
+            // コマンド引数: runserver を指定
+            "args": [
+                "runserver",
+                "0.0.0.0:8001"
+            ],
+            // Django 環境であることを指定
+            "django": true,
+            // ワークスペースフォルダをルートとする
+            "workspaceFolder": "${workspaceFolder}"
+        }
+    ]
+}

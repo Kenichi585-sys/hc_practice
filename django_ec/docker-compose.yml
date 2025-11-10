@@ -5,7 +5,7 @@ services:
     image: postgres
     platform: linux/amd64
     volumes:
-      - db-data:/var/lib/postgresql/data
+      - db-data:/var/lib/postgresql
     ports:
       - "5433:5432"
     environment:
@@ -23,8 +23,11 @@ services:
     command: python manage.py runserver 0.0.0.0:3000
     volumes:
       - .:/code
+      - ./media:/code/media
     ports:
       - "3000:3000"
+    env_file:
+      - .env
     depends_on:
       db:
         condition: service_healthy

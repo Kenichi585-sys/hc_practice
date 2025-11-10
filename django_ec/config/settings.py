@@ -10,8 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import dj_database_url
 import environ
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -41,10 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'product',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -78,7 +81,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    "default": env.db(),
+    "default": env.db("DATABASE_URL", default=f"postgres://{env('POSTGRES_USER')}:{env('POSTGRES_PASSWORD')}@db:5432/{env('POSTGRES_DB')}"),
 }
 
 
@@ -117,8 +120,41 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+DATABASE_URL = os.environ.get('DATABASE_URL')
+
+
+if DATABASE_URL:
+    ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
+
+    DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
+
+    DATABASES['default'] = dj_database_url.config(
+    conn_max_age=600,
+    ssl_require=True,
+    default=DATABASE_URL
+    )
+
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+    SECURE_SSL_REDIRECT = True
+
+else:
+    ALLOWED_HOSTS.append('localhost')
+    ALLOWED_HOSTS.append('127.0.0.1')
+    
+    DATABASES['default']['CONN_MAX_AGE'] = 600
+    DATABASES['default']['OPTIONS'] = {'sslmode': 'disable'}
+    
+    pass
