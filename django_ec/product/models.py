@@ -8,6 +8,7 @@ class Product(models.Model):
     )
     description = models.CharField(
         verbose_name='商品説明',
+        max_length=100,
         blank=True,
         null=True,
     )
