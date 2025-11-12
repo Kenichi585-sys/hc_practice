@@ -1,24 +1,20 @@
 {
-    // VS Code のデバッグ設定を定義する JSON ファイル
+    // IntelliSense を使用して利用可能な属性を学べます。
+    // 既存の属性の説明をホバーして表示します。
+    // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
-            // 設定名: デバッグ実行時にプルダウンに表示される名前
-            "name": "Python: Django",
-            // デバッグの種類: Pythonリモートデバッグを使用
-            "type": "python",
+            "name": "Python デバッガー: Django",
+            "type": "debugpy",
             "request": "launch",
-            // 実行するファイル: manage.py を指定
-            "program": "${workspaceFolder}/manage.py",
-            // コマンド引数: runserver を指定
             "args": [
                 "runserver",
-                "0.0.0.0:8001"
++               "0.0.0.0:8001"
             ],
-            // Django 環境であることを指定
             "django": true,
-            // ワークスペースフォルダをルートとする
-            "workspaceFolder": "${workspaceFolder}"
+            "autoStartBrowser": false,
+            "program": "${workspaceFolder}/manage.py"
         }
     ]
 }
